@@ -1,0 +1,100 @@
+<div class="row">
+    <div class="col-lg-3 col-md-6 col-xs-12">
+        <rd-widget>
+            <rd-widget-body>
+                <div class="widget-icon green pull-left">
+                    <i class="fa fa-users"></i>
+                </div>
+                <div class="title">{{vm.userNumber}}</div>
+                <div class="comment">Users</div>
+            </rd-widget-body>
+        </rd-widget>
+    </div>
+    <div class="col-lg-3 col-md-6 col-xs-12">
+        <rd-widget>
+            <rd-widget-body>
+                <div class="widget-icon red pull-left">
+                    <i class="fa fa-tasks"></i>
+                </div>
+                <div class="title">{{vm.roomNumber}}</div>
+                <div class="comment">Rooms</div>
+            </rd-widget-body>
+        </rd-widget>
+    </div>
+    <div class="col-lg-3 col-md-6 col-xs-12">
+        <rd-widget>
+            <rd-widget-body>
+                <div class="widget-icon orange pull-left">
+                    <i class="fa fa-sitemap"></i>
+                </div>
+                <div class="title">{{vm.requestNumber}}</div>
+                <div class="comment">Requests</div>
+            </rd-widget-body>
+        </rd-widget>
+    </div>
+    <div class="col-lg-3 col-md-6 col-xs-12">
+        <rd-widget>
+            <rd-widget-body>
+                <div class="widget-icon blue pull-left">
+                    <i class="fa fa-support"></i>
+                </div>
+                <div class="title">{{vm.onlineUserNumber}}</div>
+                <div class="comment">Online Users</div>
+            </rd-widget-body>
+        </rd-widget>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-6">
+        <rd-widget>
+            <rd-widget-header icon="fa-tasks" title="Rooms">
+            </rd-widget-header>
+            <rd-widget-body classes="medium no-padding">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th class="text-left">Rooms</th>
+                            <th>Users</th>
+                        </tr>
+                        </thead>
+                        <tbody ng-repeat="room in vm.roomNames">
+                        <tr>
+                            <td>{{room}}</td>
+                            <td>{{vm.numberOfUsersInRooms[room]}}</td>
+                            <td ng-hide="vm.numberOfUsersInRooms[room] === 0"><span class="text-success"><i
+                                    class="fa fa-check"></i></span></td>
+                            <td ng-hide="vm.numberOfUsersInRooms[room] !== 0"><span class="text-warning"><i
+                                    class="fa fa-warning"></i></span></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </rd-widget-body>
+        </rd-widget>
+    </div>
+    <div class="col-lg-5">
+        <rd-widget>
+            <rd-widget-header icon="fa-users" title="Users">
+            </rd-widget-header>
+            <rd-widget-body classes="medium no-padding">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th class="text-center">ID</th>
+                            <th>Username</th>
+                        </tr>
+                        </thead>
+                        <tbody ng-repeat="user in vm.users">
+                        <tr>
+                            <td class="text-center">{{$index + 1}}</td>
+                            <td>{{user}}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </rd-widget-body>
+        </rd-widget>
+    </div>
+</div>
